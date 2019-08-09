@@ -1,0 +1,11 @@
+server:
+  #端口
+  port: 8080
+  servlet:
+    #项目访问路径过滤
+    context-path: /demo
+
+spring:
+  profiles:
+    #使用dev的配置文件，application-dev.yml
+    active: dev

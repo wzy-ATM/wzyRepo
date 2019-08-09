@@ -1,0 +1,14 @@
+#生产环境配置
+server:
+  #端口
+  port: 8080
+  servlet:
+    #项目访问路径过滤
+    context-path: /demo-prod
+
+limit:
+  # 注意冒号后面要有一个空格
+  minMoneny: 1
+  maxMoneny: 100
+  errorMsg: 最少发红包${limit.minMoneny}元，最多只能发${limit.maxMoneny}元
+
