@@ -17,14 +17,14 @@ spring:
     password: root
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     show-sql: true
     open-in-view: false
 
 limit:
   # 注意冒号后面要有一个空格
-  minMoneny: 0.02
-  maxMoneny: 1
-  errorMsg: 最小红包${limit.minMoneny}元，最大红包${limit.maxMoneny}元
+  minMoney: 0.02
+  maxMoney: 1
+  errorMsg: 最小红包${limit.minMoney}元，最大红包${limit.maxMoney}元
 
 

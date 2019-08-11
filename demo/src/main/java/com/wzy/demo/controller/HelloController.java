@@ -28,49 +28,49 @@ public class HelloController {
     @Autowired
     private YamlConfigurerUtil yamlConfigurerUtil;
 
-    @GetMapping("/sayGet/{moneny}")
-    public String say(@PathVariable("moneny") BigDecimal moneny) {
-        yamlConfigurerUtil.getStrYmlVal("limit.minMoneny");
+    @GetMapping("/sayGet/{Money}")
+    public String say(@PathVariable("Money") BigDecimal Money) {
+        yamlConfigurerUtil.getStrYmlVal("limit.minMoney");
         String msg = "哈哈，我来发红包了，一共发了"
-                + moneny
-                + "元（最小红包" + yamlConfigurerUtil.getStrYmlVal("limit.minMoneny")
-                + ",最大红包" + yamlConfigurerUtil.getStrYmlVal("limit.maxMoneny") + "）";
+                + Money
+                + "元（最小红包" + yamlConfigurerUtil.getStrYmlVal("limit.minMoney")
+                + ",最大红包" + yamlConfigurerUtil.getStrYmlVal("limit.maxMoney") + "）";
         return msg;
     }
 
-    @PostMapping("/sayPost/{moneny}")
-    public String say1(@PathVariable("moneny") BigDecimal moneny) {
+    @PostMapping("/sayPost/{Money}")
+    public String say1(@PathVariable("Money") BigDecimal Money) {
         String msg = "哈哈，我来发红包了，一共发了"
-                + moneny
-                + "元（最小红包" + yamlConfigurerUtil.getStrYmlVal("limit.minMoneny")
-                + ",最大红包" + yamlConfigurerUtil.getStrYmlVal("limit.maxMoneny") + "）";
+                + Money
+                + "元（最小红包" + yamlConfigurerUtil.getStrYmlVal("limit.minMoney")
+                + ",最大红包" + yamlConfigurerUtil.getStrYmlVal("limit.maxMoney") + "）";
         return msg;
     }
 
-    @RequestMapping("/sayPostOrGet/{moneny}")
-    public String say2(@PathVariable("moneny") BigDecimal moneny) {
+    @RequestMapping("/sayPostOrGet/{Money}")
+    public String say2(@PathVariable("Money") BigDecimal Money) {
         String msg = "哈哈，我来发红包了，一共发了"
-                + moneny
-                + "元（最小红包" + yamlConfigurerUtil.getStrYmlVal("limit.minMoneny")
-                + ",最大红包" + yamlConfigurerUtil.getStrYmlVal("limit.maxMoneny") + "）";
+                + Money
+                + "元（最小红包" + yamlConfigurerUtil.getStrYmlVal("limit.minMoney")
+                + ",最大红包" + yamlConfigurerUtil.getStrYmlVal("limit.maxMoney") + "）";
         return msg;
     }
 
-    @RequestMapping(value = "/sayRequestPost/{moneny}", method = RequestMethod.POST)
-    public String say3(@PathVariable("moneny") BigDecimal moneny) {
+    @RequestMapping(value = "/sayRequestPost/{Money}", method = RequestMethod.POST)
+    public String say3(@PathVariable("Money") BigDecimal Money) {
         String msg = "哈哈，我来发红包了，一共发了"
-                + moneny
-                + "元（最小红包" + yamlConfigurerUtil.getStrYmlVal("limit.minMoneny")
-                + ",最大红包" + yamlConfigurerUtil.getStrYmlVal("limit.maxMoneny") + "）";
+                + Money
+                + "元（最小红包" + yamlConfigurerUtil.getStrYmlVal("limit.minMoney")
+                + ",最大红包" + yamlConfigurerUtil.getStrYmlVal("limit.maxMoney") + "）";
         return msg;
     }
 
-    @RequestMapping(value = "/sayRequestGet/{moneny}", method = RequestMethod.GET)
-    public String say4(@PathVariable(value = "moneny", required = false) BigDecimal moneny) {
+    @RequestMapping(value = "/sayRequestGet/{Money}", method = RequestMethod.GET)
+    public String say4(@PathVariable(value = "Money", required = false) BigDecimal Money) {
         String msg = "哈哈，我来发红包了，一共发了"
-                + moneny
-                + "元（最小红包" + yamlConfigurerUtil.getStrYmlVal("limit.minMoneny")
-                + ",最大红包" + yamlConfigurerUtil.getStrYmlVal("limit.maxMoneny") + "）";
+                + Money
+                + "元（最小红包" + yamlConfigurerUtil.getStrYmlVal("limit.minMoney")
+                + ",最大红包" + yamlConfigurerUtil.getStrYmlVal("limit.maxMoney") + "）";
         return msg;
     }
 
