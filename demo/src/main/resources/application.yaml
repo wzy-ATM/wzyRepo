@@ -7,5 +7,5 @@ server:
 
 spring:
   profiles:
-    #使用dev的配置文件，application-dev.yml
+    #使用dev的配置文件，application-dev.yaml
     active: dev

@@ -22,10 +22,10 @@ public class BeanConfiguration {
     @Bean
     public YamlConfigurerUtil ymlConfigurerUtil() {
         //1:加载配置文件
-        Resource app = new ClassPathResource("application.yml");
-        Resource appDev = new ClassPathResource("application-dev.yml");
-        Resource appProd = new ClassPathResource("application-prod.yml");
-        Resource appTest = new ClassPathResource("application-test.yml");
+        Resource app = new ClassPathResource("application.yaml");
+        Resource appDev = new ClassPathResource("application-dev.yaml");
+        Resource appProd = new ClassPathResource("application-prod.yaml");
+        Resource appTest = new ClassPathResource("application-test.yaml");
         YamlPropertiesFactoryBean yamlPropertiesFactoryBean = new YamlPropertiesFactoryBean();
         // 2:将加载的配置文件交给 YamlPropertiesFactoryBean
         yamlPropertiesFactoryBean.setResources(app);
