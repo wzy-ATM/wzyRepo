@@ -4,7 +4,7 @@ server:
   port: 80
   servlet:
     #项目访问路径过滤
-    context-path: /demo-dev
+    context-path: /
 
 #数据库配置
 spring:
