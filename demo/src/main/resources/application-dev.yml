@@ -1,7 +1,7 @@
 #开发环境配置
 server:
   #端口
-  port: 8080
+  port: 80
   servlet:
     #项目访问路径过滤
     context-path: /demo-dev
@@ -12,7 +12,7 @@ spring:
     #新版本的驱动
     driver-class-name: com.mysql.cj.jdbc.Driver
     #url后面的参数需要
-    url: jdbc:mysql://127.0.0.1:3306/test?characterEncoding=utf8&useUnicode=true&useSSL=true&serverTimezone=UTC&autoReconnect=true&allowMultiQueries=true
+    url: jdbc:mysql://127.0.0.1:3306/test?characterEncoding=utf8&useUnicode=true&useSSL=false
     username: root
     password: root
   jpa:

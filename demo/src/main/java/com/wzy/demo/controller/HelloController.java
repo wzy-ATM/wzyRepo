@@ -30,12 +30,8 @@ public class HelloController {
 
     @GetMapping("/sayGet/{moneny}")
     public String say(@PathVariable("moneny") BigDecimal moneny) {
-        try {
-            yamlConfigurerUtil.getStrYmlVal("limit.minMoneny");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        String msg = "哈哈，我来发红包了，一共发了11"
+        yamlConfigurerUtil.getStrYmlVal("limit.minMoneny");
+        String msg = "哈哈，我来发红包了，一共发了"
                 + moneny
                 + "元（最小红包" + yamlConfigurerUtil.getStrYmlVal("limit.minMoneny")
                 + ",最大红包" + yamlConfigurerUtil.getStrYmlVal("limit.maxMoneny") + "）";
