@@ -1,10 +1,10 @@
 #生产环境配置
 server:
   #端口
-  port: 8080
+  port: 80
   servlet:
     #项目访问路径过滤
-    context-path: /demo-prod
+    context-path: /
 
 limit:
   # 注意冒号后面要有一个空格

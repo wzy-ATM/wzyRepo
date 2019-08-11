@@ -1,14 +1,30 @@
-#测试环境配置
+#开发环境配置
 server:
   #端口
-  port: 8082
+  port: 80
   servlet:
     #项目访问路径过滤
-    context-path: /demo-test
+    context-path: /
+
+#数据库配置
+spring:
+  datasource:
+    #新版本的驱动
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #url后面的参数需要
+    url: jdbc:mysql://127.0.0.1:3306/test?characterEncoding=utf8&useUnicode=true&useSSL=false
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    open-in-view: false
 
 limit:
   # 注意冒号后面要有一个空格
-  minMoneny: 0.03
+  minMoneny: 0.02
   maxMoneny: 1
-  errorMsg: 最少发红包${limit.minMoneny}元，最多只能发${limit.maxMoneny}元
+  errorMsg: 最小红包${limit.minMoneny}元，最大红包${limit.maxMoneny}元
+
 
