@@ -1,5 +1,7 @@
 package com.wzy.demo.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,6 +20,7 @@ import java.util.Properties;
 //@Configuration标注在类上，相当于把该类作为spring的xml配置文件中的<beans>，作用为：配置spring容器(应用上下文)
 @Configuration
 public class BeanConfiguration {
+    private final static Logger log = LoggerFactory.getLogger(BeanConfiguration.class);
 
     @Bean
     public YamlConfigurerUtil ymlConfigurerUtil() {
@@ -33,17 +36,17 @@ public class BeanConfiguration {
         Properties properties = yamlPropertiesFactoryBean.getObject();
         String active = properties.getProperty("spring.profiles.active");
         if (active == "" || active == null) {
-            System.out.println("未找到spring.profiles.active配置！");
+            log.info("未找到spring.profiles.active配置！");
         } else {
             //判断当前配置是什么环境
             if ("dev".equals(active)) {
-                System.out.println("当前配置是dev环境！");
+                log.info("当前配置是dev环境！");
                 yamlPropertiesFactoryBean.setResources(app, appDev);
             } else if ("prod".equals(active)) {
-                System.out.println("当前配置是prod环境！");
+                log.info("当前配置是prod环境！");
                 yamlPropertiesFactoryBean.setResources(app, appProd);
             } else if ("test".equals(active)) {
-                System.out.println("当前配置是test环境！");
+                log.info("当前配置是test环境！");
                 yamlPropertiesFactoryBean.setResources(app, appTest);
             }
         }

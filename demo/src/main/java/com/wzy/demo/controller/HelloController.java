@@ -1,5 +1,7 @@
 package com.wzy.demo.controller;
 
+import com.wzy.demo.util.Result;
+import com.wzy.demo.util.ResultUtil;
 import com.wzy.demo.util.YamlConfigurerUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -29,49 +31,49 @@ public class HelloController {
     private YamlConfigurerUtil yamlConfigurerUtil;
 
     @GetMapping("/sayGet/{Money}")
-    public String say(@PathVariable("Money") BigDecimal Money) {
+    public Result say(@PathVariable("Money") BigDecimal Money) throws Exception {
         yamlConfigurerUtil.getStrYmlVal("limit.minMoney");
         String msg = "哈哈，我来发红包了，一共发了"
                 + Money
                 + "元（最小红包" + yamlConfigurerUtil.getStrYmlVal("limit.minMoney")
                 + ",最大红包" + yamlConfigurerUtil.getStrYmlVal("limit.maxMoney") + "）";
-        return msg;
+        return ResultUtil.success(msg);
     }
 
     @PostMapping("/sayPost/{Money}")
-    public String say1(@PathVariable("Money") BigDecimal Money) {
+    public Result say1(@PathVariable("Money") BigDecimal Money) {
         String msg = "哈哈，我来发红包了，一共发了"
                 + Money
                 + "元（最小红包" + yamlConfigurerUtil.getStrYmlVal("limit.minMoney")
                 + ",最大红包" + yamlConfigurerUtil.getStrYmlVal("limit.maxMoney") + "）";
-        return msg;
+        return ResultUtil.success(msg);
     }
 
     @RequestMapping("/sayPostOrGet/{Money}")
-    public String say2(@PathVariable("Money") BigDecimal Money) {
+    public Result say2(@PathVariable("Money") BigDecimal Money) {
         String msg = "哈哈，我来发红包了，一共发了"
                 + Money
                 + "元（最小红包" + yamlConfigurerUtil.getStrYmlVal("limit.minMoney")
                 + ",最大红包" + yamlConfigurerUtil.getStrYmlVal("limit.maxMoney") + "）";
-        return msg;
+        return ResultUtil.success(msg);
     }
 
     @RequestMapping(value = "/sayRequestPost/{Money}", method = RequestMethod.POST)
-    public String say3(@PathVariable("Money") BigDecimal Money) {
+    public Result say3(@PathVariable("Money") BigDecimal Money) {
         String msg = "哈哈，我来发红包了，一共发了"
                 + Money
                 + "元（最小红包" + yamlConfigurerUtil.getStrYmlVal("limit.minMoney")
                 + ",最大红包" + yamlConfigurerUtil.getStrYmlVal("limit.maxMoney") + "）";
-        return msg;
+        return ResultUtil.success(msg);
     }
 
     @RequestMapping(value = "/sayRequestGet/{Money}", method = RequestMethod.GET)
-    public String say4(@PathVariable(value = "Money", required = false) BigDecimal Money) {
+    public Result say4(@PathVariable(value = "Money", required = false) BigDecimal Money) {
         String msg = "哈哈，我来发红包了，一共发了"
                 + Money
                 + "元（最小红包" + yamlConfigurerUtil.getStrYmlVal("limit.minMoney")
                 + ",最大红包" + yamlConfigurerUtil.getStrYmlVal("limit.maxMoney") + "）";
-        return msg;
+        return ResultUtil.success(msg);
     }
 
 

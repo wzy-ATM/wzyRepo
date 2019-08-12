@@ -1,6 +1,8 @@
 package com.wzy.demo.controller;
 
 import com.wzy.demo.service.LuckMoneyService;
+import com.wzy.demo.util.Result;
+import com.wzy.demo.util.ResultUtil;
 import com.wzy.demo.vo.LuckyMoney;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,22 +25,22 @@ public class LuckyMoneyController {
     private LuckMoneyService luckMoneyService;
 
     @GetMapping("/getLuckMoneyList")
-    public List<LuckyMoney> getLuckMoneyList() {
-        return luckMoneyService.getLuckMoneyList();
+    public Result getLuckMoneyList() {
+        return ResultUtil.success(luckMoneyService.getLuckMoneyList());
     }
 
     @GetMapping("/sendLuckMoney/{producer}/{consumer}/{money}")
-    public LuckyMoney sendLuckMoney(@PathVariable("producer") String producer, @PathVariable("consumer") String consumer, @PathVariable("money") BigDecimal money) {
-        return luckMoneyService.sendLuckMoney(producer,consumer,money);
+    public Result sendLuckMoney(@PathVariable("producer") String producer, @PathVariable("consumer") String consumer, @PathVariable("money") BigDecimal money) {
+        return ResultUtil.success(luckMoneyService.sendLuckMoney(producer,consumer,money));
     }
 
     @GetMapping("/getLuckMoney/{id}")
-    public LuckyMoney getLuckMoney(@PathVariable("id") Integer id) {
-        return luckMoneyService.getLuckMoney(id);
+    public Result getLuckMoney(@PathVariable("id") Integer id) {
+        return ResultUtil.success(luckMoneyService.getLuckMoney(id));
     }
 
     @GetMapping("/updateLuckyMoney/{producer}/{consumer}/{id}")
-    public LuckyMoney updateLuckyMoney(@PathVariable("id") Integer id, @PathVariable("producer") String producer, @PathVariable("consumer") String consumer) {
-        return luckMoneyService.updateLuckyMoney(id,producer,consumer);
+    public Result updateLuckyMoney(@PathVariable("id") Integer id, @PathVariable("producer") String producer, @PathVariable("consumer") String consumer) {
+        return ResultUtil.success(luckMoneyService.updateLuckyMoney(id,producer,consumer));
     }
 }
