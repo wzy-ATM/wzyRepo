@@ -1,7 +1,10 @@
 package com.wzy.demo.handle;
 
+import com.wzy.demo.exception.DemoException;
 import com.wzy.demo.util.Result;
 import com.wzy.demo.util.ResultUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -15,13 +18,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @ControllerAdvice
 public class ExceptionHandle {
+    private final static Logger log = LoggerFactory.getLogger(ExceptionHandle.class);
 
     //指明捕获的异常类
     @ExceptionHandler(value = Exception.class)
     //因为不是@RestController所以需配合@ResponseBody返回json
     @ResponseBody
     public Result handle(Exception e){
-        return ResultUtil.exception(e);
+        if(e instanceof DemoException){
+            return ResultUtil.error(((DemoException) e).getResultEnum());
+        }
+        log.error("【系统异常！】",e);
+        return ResultUtil.unknowError();
     }
 
 }

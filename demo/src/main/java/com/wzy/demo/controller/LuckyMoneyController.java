@@ -3,13 +3,11 @@ package com.wzy.demo.controller;
 import com.wzy.demo.service.LuckMoneyService;
 import com.wzy.demo.util.Result;
 import com.wzy.demo.util.ResultUtil;
-import com.wzy.demo.vo.LuckyMoney;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import java.math.BigDecimal;
-import java.util.List;
 
 /**
  * @ClassName LuckyMoneyController
@@ -42,5 +40,10 @@ public class LuckyMoneyController {
     @GetMapping("/updateLuckyMoney/{producer}/{consumer}/{id}")
     public Result updateLuckyMoney(@PathVariable("id") Integer id, @PathVariable("producer") String producer, @PathVariable("consumer") String consumer) {
         return ResultUtil.success(luckMoneyService.updateLuckyMoney(id,producer,consumer));
+    }
+
+    @GetMapping("/creatTwoLuckyMoney")
+    public Result creatTwoLuckyMoney() {
+        return ResultUtil.success(luckMoneyService.creatTwoLuckyMoney());
     }
 }

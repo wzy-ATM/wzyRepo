@@ -1,5 +1,7 @@
 package com.wzy.demo.util;
 
+import com.wzy.demo.enums.ResultEnum;
+
 /**
  * @ClassName ResultUtil
  * @Description controller返回结果工具类
@@ -9,32 +11,26 @@ package com.wzy.demo.util;
  */
 public class ResultUtil {
 
-    private static String successCode = "0000";
-    private static String successMsg = "success";
-    private static String errorCode = "1111";
-    private static String errorMsg = "fail";
-
     public static Result success(Object obj) {
         Result result = new Result();
         result.setData(obj);
-        result.setMsg(ResultUtil.successMsg);
-        result.setCode(ResultUtil.successCode);
+        result.setMsg(ResultEnum.SUCCESS.getMsg());
+        result.setCode(ResultEnum.SUCCESS.getCode());
         return result;
     }
 
-    public static Result exception(Exception e) {
+    public static Result error(ResultEnum resultEnum) {
         Result result = new Result();
-        result.setData(null);
-        result.setMsg(e.getMessage());
-        result.setCode(ResultUtil.errorCode);
+        result.setMsg(resultEnum.getMsg());
+        result.setCode(resultEnum.getCode());
         return result;
     }
 
-    public static Result error() {
+    public static Result unknowError() {
         Result result = new Result();
-        result.setData(null);
-        result.setMsg(ResultUtil.errorMsg);
-        result.setCode(ResultUtil.errorCode);
+        result.setMsg(ResultEnum.UNKNOW_ERROR.getMsg());
+        result.setCode(ResultEnum.UNKNOW_ERROR.getCode());
         return result;
     }
+
 }
