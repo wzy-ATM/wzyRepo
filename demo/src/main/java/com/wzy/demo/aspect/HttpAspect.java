@@ -84,7 +84,7 @@ import javax.servlet.http.HttpServletRequest;
 @Component
 public class HttpAspect {
     //spring自带的日志框架
-    private final static Logger log = LoggerFactory.getLogger(HttpAspect.class);
+    private static final Logger log = LoggerFactory.getLogger(HttpAspect.class);
 
     //切入点，将所有http请求controller方法做为切入点
     //匹配com.wzy.demo.controller包下所有包和子包中的类中的所有方法

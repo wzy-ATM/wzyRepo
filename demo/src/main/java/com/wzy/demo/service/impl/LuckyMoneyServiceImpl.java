@@ -18,7 +18,7 @@ import java.util.Optional;
 
 @Service
 public class LuckyMoneyServiceImpl implements LuckMoneyService {
-    private final static Logger log = LoggerFactory.getLogger(LuckyMoneyServiceImpl.class);
+    private static final Logger log = LoggerFactory.getLogger(LuckyMoneyServiceImpl.class);
 
     @Autowired
     private LuckyMoneyDao luckyMoneyDao;

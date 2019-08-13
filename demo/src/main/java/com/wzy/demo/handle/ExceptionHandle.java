@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @ControllerAdvice
 public class ExceptionHandle {
-    private final static Logger log = LoggerFactory.getLogger(ExceptionHandle.class);
+    private static final Logger log = LoggerFactory.getLogger(ExceptionHandle.class);
 
     //指明捕获的异常类
     @ExceptionHandler(value = Exception.class)

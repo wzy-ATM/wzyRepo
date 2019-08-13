@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ExceptionTestServiceImpl implements ExceptionTestService {
-    private final static Logger log = LoggerFactory.getLogger(ExceptionTestServiceImpl.class);
+    private static final Logger log = LoggerFactory.getLogger(ExceptionTestServiceImpl.class);
 
     @Override
     public void testException(Integer num) {
