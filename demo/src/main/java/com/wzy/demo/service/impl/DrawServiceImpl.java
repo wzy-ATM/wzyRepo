@@ -34,6 +34,9 @@ public class DrawServiceImpl implements DrawService {
             DrawCode drawCode = null;
             try {
                 List<DrawCode> list = drawDao.findByStatus();
+                if(list.size() == 0){
+                    return drawCode;
+                }
                 Random random = new Random();
                 int n = random.nextInt(list.size());
                 drawCode = list.get(n);
@@ -43,6 +46,22 @@ public class DrawServiceImpl implements DrawService {
                 throw new DemoException(ResultEnum.UNKNOW_ERROR);
             }
             return drawCode;
+        }
+    }
+
+    @Override
+    @Transactional
+    public void addCode() {
+        try {
+            drawDao.deleteAll();
+            for(int i = 1;i <= 20;i++){
+                DrawCode drawCode = new DrawCode();
+                drawCode.setStatus("0");
+                drawCode.setCode(Integer.toString(i));
+                drawDao.save(drawCode);
+            }
+        } catch (Exception e) {
+            throw new DemoException(ResultEnum.UNKNOW_ERROR);
         }
     }
 }

@@ -7,5 +7,6 @@ import java.util.List;
 public interface DrawService {
 
     DrawCode creatCode();
+    void addCode();
 
 }
